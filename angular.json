@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "CarteleraPeliculas"
+  "defaultProject": "CarteleraPeliculas",
+  "cli": {
+    "analytics": false
+  }
 }

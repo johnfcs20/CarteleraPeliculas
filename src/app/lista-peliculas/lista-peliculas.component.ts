@@ -7,6 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPeliculasComponent implements OnInit {
 
+
+  listaPeliculas: any[] = [
+
+    {descripcion: 'bla 1', tiempo: 0.5},
+
+    {descripcion: 'bla 2', tiempo: 0.5},
+
+    {descripcion: 'bla 3', tiempo: 0.5},
+    
+    {descripcion: 'bla 4', tiempo: 0.5},
+
+    {descripcion: 'bla 5', tiempo: 0.5},
+
+    {descripcion: 'bla 6', tiempo: 0.5}
+
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

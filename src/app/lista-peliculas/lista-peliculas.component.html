@@ -1,21 +1,54 @@
-<div class="row">
-
-  <div class="col-sm-4 separate border-top-0" *ngFor="let pelicula of listaPeliculas">
+<nav class="navbar  justify-content-between menu rounded">
+    <div class="col-sm-3">
         <div class="column-block">
-            <div class="card viewcard" style="width: 18rem;">
-                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRq6_4OeNfendbg5EM1mL-CcwQnREi8vDozw4ESryy4gdJ9jqFm" class="card-img-top rounded" alt="...">
-                <div class="card-body ">
-                    <h5 class="card-titl text-card">Card title</h5>
-                    <p class="card-text text-card">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
+            <a class="navbar-brand" >Extreme Media</a>
+         </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="column-block">
+        
+            <span class="navbar-brand item-menu"   (click)="filtroTipo('movie')">Peliculas</span> 
+             <span class="navbar-brand"> | </span>
+
+            <span class="navbar-brand item-menu"  (click)="filtroTipo('series')">Series</span>
         </div>
-  </div>
+    </div>
+        <div class="col-sm-6"  >
+            <div class="column-block">
+                <button type="button"  class="btn btn-secondary btn-sm">Cerrar Sesion</button>
+            </div>
+    </div>
+</nav>
 
-  
 
+<div class="spinner-grow text-secondary loading" role="status" *ngIf="loading">
+  <span class="sr-only"></span>
 </div>
 
+
+
+<div class="container">
+     <div class="row">
+        <div class="col-md-12">
+            <div class="row"  *ngIf="!loading">
+                <div class="col-sm-4 separate border-top-0" *ngFor="let pelicula of peliculasLista | paginate: { itemsPerPage: 6, currentPage: indicePagina }; let i = index">
+                    <div class="column-block">
+                        <div class="card viewcard" style="width: 18rem;">
+                        <img [src]="pelicula.images['Poster Art'].url" class="card-img-top rounded" alt=""> 
+
+                            <div class="card-body ">
+                                <h5 class="card-titl text-card">{{pelicula.title}} </h5>
+                                <p class="card-text text-card">{{pelicula.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <pagination-controls (pageChange)="indicePagina = $event; cambiarPagina()" previousLabel="" nextLabel="" class="pagination" *ngIf="!loading"></pagination-controls>
+        </div>
+     </div>
+</div>
 
      
 

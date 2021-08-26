@@ -13,20 +13,57 @@ body {
 
 .viewcard{
     background-color: rgba(48,57, 73,.6) !important;
-    
+    width: 100% !important;
 }
 
 
 .text-card{
 
-        font-family: Candara;
+    font-family: Candara;
     color: rgb(255, 255, 255);
-
 }
 
 .menu {
     background-color: #303949;
     font-family: Candara;
+    font-size: large;
     color: rgb(255, 255, 255);
+}
+
+.pagination{
+  position: relative;
+  margin-top: 40px;
+  text-align: end;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.pagination a {
+  color: #ffffff !important;
+}
+
+.pagination > * {
+    width: 100%;
+}
+
+
+.button-tap {
+   color: #303949;
+}
+
+
+.loading {
+
+    width: 20rem;
+    height: 20rem;
+    margin-top: 15%;
+    margin-left: 35%;
+
+}
+
+
+.item-menu{
+
+    cursor: pointer;
 
 }

@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthModule } from '@auth0/auth0-angular';
 import { LoginUserComponent } from './login-user/login-user.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,12 @@ import { LoginUserComponent } from './login-user/login-user.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    NgSelectModule,
     AuthModule.forRoot({
       domain: 'dev-ea6ehaks.us.auth0.com',
       clientId: 'Kkhejkz6ZZAavKkco99uu4ruLFbUlWIk'

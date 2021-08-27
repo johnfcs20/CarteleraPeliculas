@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 body {
     background-color: black;
@@ -28,6 +29,7 @@ body {
     font-family: Candara;
     font-size: large;
     color: rgb(255, 255, 255);
+    margin-bottom: 40px;
 }
 
 .pagination{
@@ -83,3 +85,36 @@ body {
     margin-left: auto;
 max-width: 1500px;
 }
+
+.filter { margin-bottom: 30px; }
+
+.movie-genre { margin-left: -10px }
+
+.movie-genre span { 
+    color: white; 
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 20px;
+    padding: 10px 20px;
+}
+
+.movie-genre span.active {
+    background-color: #303949;
+    border-radius: 10px;
+}
+
+.yearfilter { text-align: end; }
+
+.yearfilter .dropdown { 
+    border-radius: 10px; 
+    display: inline-block;
+    width: 100px; }
+
+.dropdown  .ng-select-container { 
+    background-color: #ececec;
+    padding: 0 12px;
+    
+}
+
+
+

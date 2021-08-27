@@ -1,31 +1,62 @@
 
 
+<div class="container container-movie filter">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="movie-genre">
+                <span [ngClass]="{active: !filterSeries}" (click)="filtroTipo('movie')">Películas</span>
+                <span [ngClass]="{active: filterSeries}" (click)="filtroTipo('series')">Series</span>
+            </div>
+        </div>
+
+            <div class="col-md-6 yearfilter">
+                        <form [formGroup]="formularioFiltrosBusqueda">
+                             <ng-select  
+                                         
+                                        class="dropdown" 
+                                        [items]="anios" 
+                                        [clearable]="false" 
+                                        formControlName="anio"
+                                        (change)="filtroAnio()"
+                                        >
+                         </ng-select>
+                        </form>
+                           
+            </div>
+     
+    </div>
+</div>
+
+
+
 <div class="spinner-grow text-secondary loading" role="status" *ngIf="loading">
   <span class="sr-only"></span>
 </div>
 
 
 
-<div class="container-movie buttons-actions">
-     <div class="row">
-        <div class="col-md-12">
-            <div class="row"  *ngIf="!loading">
-                <div class="col-sm-4 separate border-top-0" *ngFor="let pelicula of peliculasLista | paginate: { itemsPerPage: 6, currentPage: indicePagina }; let i = index">
-                    <div class="column-block">
-                        <div class="card viewcard" style="width: 18rem;">
-                        <img [src]="pelicula.images['Poster Art'].url" class="card-img-top rounded" alt=""> 
 
-                            <div class="card-body ">
-                                <h5 class="card-titl text-card">{{pelicula.title}} </h5>
-                                <p class="card-text text-card">{{pelicula.description}}</p>
-                            </div>
-                        </div>
+<div class="container container-movie"  >
+
+    <div class="alert alert-dark" role="alert" *ngIf="!loading && peliculasListaCopia.length <= 0">
+        No existe registros con estos criterio de busqueda
+    </div
+    >
+    <div class="row"  *ngIf="!loading && peliculasListaCopia.length > 0"> 
+        <div class="col-sm-4 separate border-top-0" *ngFor="let pelicula of peliculasListaCopia | paginate: { itemsPerPage: 6, currentPage: indicePagina }; let i = index">
+            <div class="column-block">
+                <div class="card viewcard" style="width: 18rem;">
+                <img [src]="pelicula.images['Poster Art'].url" class="card-img-top rounded" alt=""> 
+
+                    <div class="card-body ">
+                        <h5 class="card-titl text-card">{{pelicula.title}} </h5>
+                        <p class="card-text text-card">{{pelicula.description}}</p>
                     </div>
+                </div>
             </div>
-            </div>
-            <pagination-controls (pageChange)="indicePagina = $event; cambiarPagina()" previousLabel="" nextLabel="" class="pagination" *ngIf="!loading"></pagination-controls>
         </div>
-     </div>
+    </div>
+    <pagination-controls (pageChange)="indicePagina = $event; cambiarPagina()" previousLabel="" nextLabel="" class="pagination" *ngIf="!loading && peliculasListaCopia.length > 0"></pagination-controls>
 </div>
 
      

@@ -23,11 +23,9 @@ export class ListaPeliculasComponent implements OnInit {
   formularioFiltrosBusqueda: FormGroup;
 
 
-  constructor( private _peliculasService: ListaPeliculasService, public fb: FormBuilder) {
 
 
-
-  }
+  constructor( private _peliculasService: ListaPeliculasService, public fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.main();
@@ -35,16 +33,26 @@ export class ListaPeliculasComponent implements OnInit {
 
   main(){
 
+    /*<summary>
+        Este metodo se encarga de encapsular todos lo metodos que son necesarios para la inicializacion del componente
+    </summary>*/
+
+
     this.listaPeliculas();
     this.anios = rangoAños();
     this.formularioFiltrosBusqueda = this.fb.group({
-          anio: [""]
+          anio: ["Año"]
        });
 
   }
 
 
   listaPeliculas(){
+    
+    /*<summary>
+        Este metodo se encarga de llamar al metodo en el servicio que retorna la lista de peliculas desde el API
+    </summary>*/
+
     setTimeout(() => {
           this.loading = true;
           this._peliculasService.listaPeliculas().subscribe((data: any)=>{
@@ -57,7 +65,9 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   filtroTipo(tipo: string){
-
+    /*<summary>
+        Este metodo se encarga de filtrar dentro del arreglo las pelicuas que tengan en su categoria la cadena de caracteres enviada
+    </summary>*/
 
     this.formularioFiltrosBusqueda.reset({});
     this.indicePagina = 1;
@@ -78,8 +88,10 @@ export class ListaPeliculasComponent implements OnInit {
 
 
   filtroAnio(){
+    /*<summary>
+        Este metodo se encarga de filtrar dentro del arreglo las pelicuas que tengan en su año la cadena de caracteres enviada
+    </summary>*/
       
-   // this.listaPeliculas();
     this.loading = true;
     this.indicePagina = 1;
     setTimeout(() => {
@@ -90,6 +102,12 @@ export class ListaPeliculasComponent implements OnInit {
   }
 
   cambiarPagina(){
+
+    /*<summary>
+        Este metodo se encarga de activar el loading al momento de que se hace el cambio de pagina
+    </summary>*/
+      
+
         this.loading = true;
         setTimeout(() => {
           this.loading = false;
@@ -99,6 +117,13 @@ export class ListaPeliculasComponent implements OnInit {
 
 
 function rangoAños () {
+
+
+  /*<summary>
+        Esta funcion se encarga de cargar la lista de los 20 años que estan por debajo del vigente
+    </summary>*/
+      
+
   const max = new Date().getFullYear()
   const min = max - 20
   const years = []

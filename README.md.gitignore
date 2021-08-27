@@ -1,0 +1,24 @@
+## Table of Contents
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
+
+### General Info
+***
+
+Este es un proyecto de prueba que despliega una lista de contenido multimedia y permite la busqueda por año y por tipo de contenido (serie o pelicula).
+
+## Technologies
+***
+A list of technologies used within the project:
+* Angular (https://https://angular.io/cli): Version 11.0.7
+
+
+## Installation
+***
+A little intro about the installation. 
+```
+
+$ npm install
+$ npm start
+```

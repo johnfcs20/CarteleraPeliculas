@@ -7,17 +7,24 @@ import { ListaPeliculasComponent } from './lista-peliculas/lista-peliculas.compo
 import { ListaPeliculasService } from './lista-peliculas/lista-peliculas.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthModule } from '@auth0/auth0-angular';
+import { LoginUserComponent } from './login-user/login-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaPeliculasComponent
+    ListaPeliculasComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AuthModule.forRoot({
+      domain: 'dev-ea6ehaks.us.auth0.com',
+      clientId: 'Kkhejkz6ZZAavKkco99uu4ruLFbUlWIk'
+    }),
   ],
   providers: [ListaPeliculasService],
   bootstrap: [AppComponent]

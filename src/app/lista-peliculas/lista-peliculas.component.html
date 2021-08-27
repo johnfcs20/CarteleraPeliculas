@@ -1,25 +1,3 @@
-<nav class="navbar  justify-content-between menu rounded">
-    <div class="col-sm-3">
-        <div class="column-block">
-            <a class="navbar-brand" >Extreme Media</a>
-         </div>
-    </div>
-
-    <div class="col-sm-3">
-        <div class="column-block">
-        
-            <span class="navbar-brand item-menu"   (click)="filtroTipo('movie')">Peliculas</span> 
-             <span class="navbar-brand"> | </span>
-
-            <span class="navbar-brand item-menu"  (click)="filtroTipo('series')">Series</span>
-        </div>
-    </div>
-        <div class="col-sm-6"  >
-            <div class="column-block">
-                <button type="button"  class="btn btn-secondary btn-sm">Cerrar Sesion</button>
-            </div>
-    </div>
-</nav>
 
 
 <div class="spinner-grow text-secondary loading" role="status" *ngIf="loading">
@@ -28,7 +6,7 @@
 
 
 
-<div class="container">
+<div class="container-movie buttons-actions">
      <div class="row">
         <div class="col-md-12">
             <div class="row"  *ngIf="!loading">
